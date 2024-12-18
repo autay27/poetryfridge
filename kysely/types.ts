@@ -1,4 +1,5 @@
 import {
+    ColumnType,
     Generated,
     Insertable,
     Selectable,
@@ -14,7 +15,7 @@ export interface Database {
 export interface UserTable {
     user_id: Generated<number>
     email: string //how to validate?
-    created_at: Date
+    created_at: ColumnType<Date, string | undefined, never>
 }
 
 export type User = Selectable<UserTable>
