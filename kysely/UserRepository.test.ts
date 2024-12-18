@@ -1,10 +1,12 @@
-import { db } from './kysely/database'
-import * as UserRepository from './kysely/UserRepository'
+import { db } from './database'
+import * as UserRepository from './UserRepository'
 import {after, afterEach, before, describe, it} from "node:test";
 import {sql} from "kysely";
 
+
 describe('UserRepository', () => {
     before(async () => {
+        console.log(process.env.DATABASE_HOST)
         await db.schema.createTable('user')
             .addColumn('id', 'serial', (cb) => cb.primaryKey())
             .addColumn('email', 'varchar', (cb) => cb.notNull())
