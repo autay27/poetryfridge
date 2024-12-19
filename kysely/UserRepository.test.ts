@@ -8,10 +8,10 @@ describe('UserRepository', () => {
     before(async () => {
         console.log(process.env.DATABASE_HOST)
         await db.schema.createTable('user')
-            .addColumn('id', 'serial', (cb) => cb.primaryKey())
+            .addColumn('user_id', 'serial', (cb) => cb.primaryKey())
             .addColumn('email', 'varchar', (cb) => cb.notNull())
             .addColumn('created_at', 'timestamp', (cb) =>
-                cb.notNull().defaultTo(new Date())
+                cb.defaultTo(sql`now()`).notNull()
             )
             .execute()
     })
