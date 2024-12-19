@@ -1,0 +1,13 @@
+.topNav{
+    display: flex;
+    flex-direction: row;
+}
+
+.topNavItem{
+    padding: 10px;
+    border-radius: 1px;
+}
+
+.currentTopNavItem{
+    color: hotpink;
+}
