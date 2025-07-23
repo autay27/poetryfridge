@@ -1,0 +1,76 @@
+
+// A user Bob has an email and made an account at 12:00 17-12-2024 
+Table user {
+  user_id integer [primary key]
+  email email
+  created_at timestamp
+}
+
+// 'apple' is a word
+Table word {
+  word string [primary key]
+}
+
+// user Bob has received 3 copies of the word 'apple'
+// the last one received at 15:00 17-12-2024
+Table user_word_quantity {
+  user_id integer [primary key]
+  word string [primary key]
+  quantity integer
+  last_received timestamp
+}
+
+Ref: user.user_id < user_word_quantity.user_id 
+Ref: word.word < user_word_quantity.user_id
+
+// "My Apple Poem" is an arrangement of words "apple apple tasty" 
+// published on 15:05 17-12-2024 by user Bob
+Table poem {
+  poem_id integer [primary key]
+  author integer 
+  publish_date timestamp
+}
+
+Ref: user.user_id < poem.author
+
+// The arrangement for "My Apple Poem" positions the word 'apple' at (1.2, 1.5)
+// and no other word can be at these coordinates
+Table arrangement {
+  poem_id integer [primary key]
+  word string
+  x_pos float [primary key]
+  y_pos float [primary key]
+  rotation float
+}
+
+Ref: poem.poem_id < arrangement.poem_id
+Ref: arrangement.word > word.word
+
+// User Bob received a poem "Vegetables" at 15:10 17-12-2024
+// and hasn't read it yet
+Table mail {
+  user_id integer [primary key]
+  poem_id integer [primary key]
+  received timestamp [primary key]
+  read boolean
+}
+
+Ref: mail.user_id < user.user_id
+Ref: mail.poem_id < poem.poem_id
+
+// 'Food' is a pack of 5 random food-related words which costs 10 points
+Table pack {
+  pack_id integer [primary key]
+  pack_name string
+  amount integer
+  price integer
+}
+
+// 'Food' pack contains the word 'apple'
+Table pack_contents {
+  pack_id integer [primary key]
+  word string [primary key]
+}
+
+Ref: pack_contents.pack_id > pack.pack_id
+Ref: pack_contents.word > word.word
