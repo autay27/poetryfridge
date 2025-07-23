@@ -1,3 +1,6 @@
+# Poetry Fridge
+
+A web app where users can earn words, arrange them to form poems, and share them with others.
 
 ## Install
 
@@ -5,6 +8,22 @@
 npm install
 
 ```
+
+## Setup
+
+Database for local development:
+
+```bash
+docker-compose up -d
+
+```
+
+The database will be available at port 5433. Example:
+
+```bash
+psql -h localhost -p 5433 -U $username -d $dbname
+```
+
 
 ## Run
 ```bash

@@ -1,0 +1,3 @@
+- Set up PostgresSQL db with docker-compose eg https://github.com/felipewom/docker-compose-postgres
+- able to connect with kysely
+- initial migration using kysely
