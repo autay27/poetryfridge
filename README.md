@@ -32,6 +32,8 @@ When you are done you can shut down the service:
 docker-compose down
 ```
 
+The database data will be persisted via a docker volume, which will be visible at `data/` and can be deleted for a fresh start. 
+
 ## Run
 ```bash
 npm run dev
