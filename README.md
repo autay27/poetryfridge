@@ -11,19 +11,26 @@ npm install
 
 ## Setup
 
-Database for local development:
+First, create your `.env` file following `.env.example`.
+
+Start up the Docker database for local development:
 
 ```bash
 docker-compose up -d
 
 ```
 
-The database will be available at port 5433. Example:
+The database will be available at the port defined in the `.env` file. Example:
 
 ```bash
-psql -h localhost -p 5433 -U $username -d $dbname
+psql -h localhost -p 5432 -U $username -d $dbname
 ```
 
+When you are done you can shut down the service:
+
+```bash
+docker-compose down
+```
 
 ## Run
 ```bash

@@ -2,8 +2,7 @@ services:
   database:
     image: 'postgres:17.5'
     ports:
-      - '5433:5432'
-    environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: dbname
+      - '${PORT}:5432'
+    env_file:
+      - .env
+
