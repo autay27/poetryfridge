@@ -1,3 +1,2 @@
-- Set up PostgresSQL db with docker-compose eg https://github.com/felipewom/docker-compose-postgres https://github.com/alexeagleson/docker-node-postgres-template/blob/master/docker-compose.yml
-- able to connect with kysely
 - initial migration using kysely
+- display some words from the db in Compose

@@ -34,6 +34,14 @@ docker-compose down
 
 The database data will be persisted via a docker volume, which will be visible at `data/` and can be deleted for a fresh start. 
 
+## Tests
+
+Testing the Kysely database connection:
+
+```bash
+npx tsx --test kysely/*.test.ts  
+```
+
 ## Run
 ```bash
 npm run dev
