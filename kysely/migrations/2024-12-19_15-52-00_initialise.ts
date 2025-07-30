@@ -19,9 +19,16 @@ export async function up(db: Kysely<never>): Promise<void> {
     console.log('Word table created successfully')
 
     await db.schema.createTable('user_word_quantity')
-        .addColumn('user_id', 'serial', (cb) => cb.primaryKey())
-        .addColumn('word', 'varchar', (cb) => cb.primaryKey())
+        .addColumn('user_id', 'serial', (cb) => cb.notNull())
+        .addColumn('word', 'varchar', (cb) => cb.notNull())
+        .addPrimaryKeyConstraint('primary_key', ['user_id', 'word'])
         .execute()
 
     console.log('Word quantity table created successfully')
+}
+
+export async function down(db: Kysely<never>): Promise<void> {
+    await db.schema.dropTable('user').execute()
+    await db.schema.dropTable('word').execute()
+    await db.schema.dropTable('user_word_quantity').execute()
 }
