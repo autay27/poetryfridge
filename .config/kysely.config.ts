@@ -22,11 +22,11 @@ export default defineConfig({
 			return new PostgresQueryCompiler()
 		},
 	},
-	//   migrations: {
-	//     migrationFolder: "migrations",
-	//   },
+	   migrations: {
+	     migrationFolder: "kysely/migrations",
+	   },
 	//   plugins: [],
-	//   seeds: {
-	//     seedFolder: "seeds",
-	//   }
+	   seeds: {
+	     seedFolder: "kysely/seeds",
+	   }
 })

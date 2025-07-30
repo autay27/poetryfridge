@@ -17,7 +17,7 @@ Start up the Docker database for local development and perform migrations:
 
 ```bash
 docker-compose up -d
-npx tsx kysely/migrate.ts
+npx kysely migrate:latest && npx kysely seed run
 ```
 
 The database will be available at the port defined in the `.env` file. Example:
